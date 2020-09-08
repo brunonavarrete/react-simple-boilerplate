@@ -11,7 +11,7 @@ import { connect } from 'react-redux'
 
 class App extends React.Component {
 	componentDidMount(){
-		this.props.fetchItems()
+		this.props.onFetchItems()
 	}
 	render() {
 		return (
@@ -34,7 +34,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchItems: () => dispatch(actionCreator.fetchItems()),
+        onFetchItems: () => dispatch(actionCreator.onFetchItems()),
     }
 }
 

@@ -9,20 +9,25 @@ const reducer = (state = initialState, action) => {
 
 	switch(action.type) {
 		case 'ADD_ITEM':
-			const newId = [...newState.baseData].length + 1
 			return {
 				...newState,
-				baseData: [...newState.baseData, {
-					id: newId,
-					name: action.item
-				}]
+				baseData: [...newState.baseData, action.item]
 			};
 			break;
-		case 'LIST_ITEMS':
+		case 'FETCH_ITEMS':
 			return {
 				...newState,
 				baseData: action.items
 			}
+			break;
+		case 'DELETE_ITEM':
+			let arr = [...newState.baseData]
+
+			return {
+				...newState,
+				baseData: arr.filter(i => i.id !== action.id)
+			}
+			break;
 	}
 
 
