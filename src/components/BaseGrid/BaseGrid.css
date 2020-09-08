@@ -2,6 +2,7 @@
 	width: calc(100vw - 60px);
 	margin: 20px auto;
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .BaseGrid__card {
@@ -11,6 +12,7 @@
 
 .BaseGrid__cardInner {
 	padding: 2rem;
-	border: solid 1px #ccc;
+	border: solid 1px #eee;
 	border-radius: 4px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.12);
 }

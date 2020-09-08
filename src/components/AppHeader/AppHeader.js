@@ -7,9 +7,10 @@ const AppHeader = (props) => {
     	textAlign: 'center',
     	fontWeight: 'bold',
     	padding: '10px 15px',
-    	marginBottom: 30
+    	marginBottom: 30,
+    	background: '#f0f0f0'
     } }>
-        <img className="Header__logo" src={logo} alt="logo" /><br/>Scalable path boilerplate
+        <img className="Header__logo" src={logo} alt="logo" /><br/>Scalable Path boilerplate
     </header>
   )
 }
