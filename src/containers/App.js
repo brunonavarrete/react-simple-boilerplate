@@ -3,11 +3,16 @@ import React from 'react';
 import './App.css';
 import AppHeader from '../components/AppHeader/AppHeader'
 import BaseGrid from '../components/BaseGrid/BaseGrid'
-import BaseForm from '../components/BaseForm/BaseForm'
+import BaseForm from './BaseForm/BaseForm'
+
+import * as actionCreator from '../store/actions/actions'
 
 import { connect } from 'react-redux'
 
 class App extends React.Component {
+	componentDidMount(){
+		this.props.fetchItems()
+	}
 	render() {
 		return (
 			<div>
@@ -18,20 +23,18 @@ class App extends React.Component {
 		);
 	}
 }
+/*<BaseGrid data={ this.props.baseData } />*/
 
 const mapStateToProps = state => {
     return {
-        baseData: state.baseData
+        baseData: state.baseData,
+        newItem: state.newItem
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        // fetchPlayers: () => dispatch(actionCreator.fetchPlayers()),
-        // //setPlayers: () => dispatch({type: 'SET_PLAYERS'}),
-        // onAddition: (player) => dispatch(actionCreator.onAddition(player)),
-        // deletePlayer: (id) => dispatch(actionCreator.deletePlayer(id)),
-        // onAnswer: (id, correct) => dispatch({type: 'ON_ANSWER', id:id, correct:correct})
+        fetchItems: () => dispatch(actionCreator.fetchItems()),
     }
 }
 

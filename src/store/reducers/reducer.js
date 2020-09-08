@@ -1,14 +1,32 @@
 const initialState = {
-	baseData: [
-		{ id:1, name: 'Bruno', description: 'Lorem ipsum dolor asit amet'},
-		{ id:2, name: 'Juan', description: 'Lorem ipsum dolor asit amet'},
-		{ id:3, name: 'Pedro', description: 'Lorem ipsum dolor asit amet'},
-		{ id:4, name: 'Pablo', description: 'Lorem ipsum dolor asit amet'},
-	]
+	baseData: [],
+	newItem: ''
 }
 
 const reducer = (state = initialState, action) => {
-	return state
+
+	const newState = {...state}
+
+	switch(action.type) {
+		case 'ADD_ITEM':
+			const newId = [...newState.baseData].length + 1
+			return {
+				...newState,
+				baseData: [...newState.baseData, {
+					id: newId,
+					name: action.item
+				}]
+			};
+			break;
+		case 'LIST_ITEMS':
+			return {
+				...newState,
+				baseData: action.items
+			}
+	}
+
+
+	return newState
 }
 
 export default reducer
